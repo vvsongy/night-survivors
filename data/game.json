@@ -1,0 +1,220 @@
+{
+  "run": {
+    "duration": 120.0
+  },
+  "sound": {
+    "folder": "sounds",
+    "sample_rate": 22050,
+    "repeat_seconds": 0.06,
+    "sounds": {
+      "hit": { "volume": 0.25, "decay": 22, "notes": [{ "from": 900, "to": 520, "seconds": 0.07 }] },
+      "gem": { "volume": 0.22, "decay": 20, "notes": [{ "from": 660, "to": 1250, "seconds": 0.09 }] },
+      "level": {
+        "volume": 0.3,
+        "decay": 12,
+        "notes": [
+          { "from": 523, "to": 523, "seconds": 0.09 },
+          { "from": 659, "to": 659, "seconds": 0.09 },
+          { "from": 784, "to": 784, "seconds": 0.14 }
+        ]
+      },
+      "hurt": { "volume": 0.3, "decay": 14, "notes": [{ "from": 240, "to": 110, "seconds": 0.16 }] },
+      "end": {
+        "volume": 0.34,
+        "decay": 7,
+        "notes": [
+          { "from": 392, "to": 392, "seconds": 0.14 },
+          { "from": 294, "to": 294, "seconds": 0.14 },
+          { "from": 196, "to": 150, "seconds": 0.3 }
+        ]
+      }
+    }
+  },
+  "feel": {
+    "shake_seconds": 0.22,
+    "shake_pixels": 6,
+    "number_seconds": 0.6,
+    "number_rise": 30,
+    "number_lift": 14,
+    "number_limit": 36,
+    "flash_seconds": 0.18,
+    "flash_start": 9,
+    "flash_grow": 22,
+    "flash_limit": 36
+  },
+  "screen": {
+    "width": 390,
+    "height": 700,
+    "tile_size": 48,
+    "tile_art": "floor.png",
+    "mouse_deadzone": 12
+  },
+  "hero": {
+    "speed": 120,
+    "hp": 100,
+    "hit_radius": 12,
+    "gem_magnet_radius": 60,
+    "art": "hero.png"
+  },
+  "start_weapons": {
+    "spark_wand": 1
+  },
+  "weapons": {
+    "spark_wand": {
+      "label": "Spark Wand",
+      "short": "Spark",
+      "card_text": "shoots a spark at the nearest enemy",
+      "behaviour": "projectile",
+      "base": {
+        "damage": 10,
+        "interval": 0.8,
+        "shots": 1,
+        "speed": 400,
+        "radius": 4,
+        "target_range": 500,
+        "max_distance": 600
+      },
+      "per_level": {
+        "damage": 3,
+        "interval": -0.08
+      },
+      "count_stat": "shots",
+      "extra_count_at": [3, 5]
+    },
+    "spin_blades": {
+      "label": "Spin Blades",
+      "short": "Blades",
+      "card_text": "blades circle around you",
+      "behaviour": "orbit",
+      "art": "sword.png",
+      "base": {
+        "damage": 8,
+        "blades": 2,
+        "orbit_radius": 60,
+        "turn_seconds": 1.5,
+        "hit_interval": 0.5,
+        "radius": 10
+      },
+      "per_level": {
+        "damage": 3
+      },
+      "count_stat": "blades",
+      "extra_count_at": [2, 4]
+    },
+    "holy_ring": {
+      "label": "Holy Ring",
+      "short": "Ring",
+      "card_text": "hurts every enemy close to you",
+      "behaviour": "aura",
+      "base": {
+        "damage": 5,
+        "radius": 50,
+        "interval": 0.5
+      },
+      "per_level": {
+        "damage": 2,
+        "radius": 10
+      }
+    }
+  },
+  "items": {
+    "swift_boots": {
+      "label": "Swift Boots",
+      "short": "Boots",
+      "card_text": "+10% walking speed",
+      "per_level": {
+        "walk_speed_percent": 10
+      }
+    },
+    "big_heart": {
+      "label": "Big Heart",
+      "short": "Heart",
+      "card_text": "+20 max HP and heal 20",
+      "per_level": {
+        "max_hp": 20,
+        "heal": 20
+      }
+    },
+    "magnet": {
+      "label": "Magnet",
+      "short": "Magnet",
+      "card_text": "+30 px gem magnet radius",
+      "per_level": {
+        "magnet_radius": 30
+      }
+    }
+  },
+  "level_up": {
+    "cards": 3,
+    "max_level": 5,
+    "max_weapons": 3,
+    "xp_first": 5,
+    "xp_step": 3,
+    "heal": 30,
+    "heal_text": "recover some HP"
+  },
+  "gem": {
+    "speed": 300,
+    "radius": 8,
+    "art": "gem.png",
+    "art_by_xp": {
+      "1": "gem_blue.png",
+      "2": "gem_pink.png"
+    }
+  },
+  "enemies": {
+    "bat": {
+      "hp": 8,
+      "speed": 100,
+      "damage": 5,
+      "xp": 1,
+      "radius": 10,
+      "art": "bat.png"
+    },
+    "slime": {
+      "hp": 30,
+      "speed": 55,
+      "damage": 8,
+      "xp": 2,
+      "radius": 12,
+      "art": "slime.png"
+    },
+    "ghost": {
+      "hp": 15,
+      "speed": 135,
+      "damage": 6,
+      "xp": 2,
+      "radius": 11,
+      "art": "ghost.png"
+    },
+    "demon": {
+      "hp": 800,
+      "speed": 85,
+      "damage": 20,
+      "xp": 0,
+      "radius": 24,
+      "art": "demon.png",
+      "scale": 2,
+      "boss": true
+    }
+  },
+  "spawning": {
+    "check_seconds": 1.0,
+    "max_per_check": 8,
+    "spawn_radius": 380,
+    "despawn_radius": 700,
+    "boss_return_radius": 600,
+    "max_alive": 120,
+    "enemy_hit_interval": 0.5,
+    "phases": [
+      { "from": 0, "types": ["bat"], "minimum": 12 },
+      { "from": 15, "types": ["bat"], "minimum": 20 },
+      { "from": 30, "types": ["bat", "slime"], "minimum": 28 },
+      { "from": 45, "types": ["slime", "ghost"], "minimum": 36 },
+      { "from": 60, "types": ["bat", "ghost"], "minimum": 45 },
+      { "from": 75, "types": ["bat", "slime", "ghost"], "minimum": 55 },
+      { "from": 90, "types": ["bat", "slime"], "minimum": 55, "boss": "demon" },
+      { "from": 105, "types": ["bat"], "minimum": 75 }
+    ]
+  }
+}
